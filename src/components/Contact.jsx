@@ -1,10 +1,10 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { 
-  Send, 
-  MessageCircle, 
-  Mail, 
-  MapPin, 
+import {
+  Send,
+  MessageCircle,
+  Mail,
+  MapPin,
   Clock,
   CheckCircle2,
   Loader2
@@ -15,9 +15,9 @@ const projectTypes = [
   'Landing Page',
   'E-commerce Store',
   'Portfolio Website',
-  'Restaurant Website',
+  'Web Application',
   'Website Redesign',
-  'Custom Web Application',
+  'AI/Automation Project',
   'Other'
 ];
 
@@ -52,14 +52,12 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
+
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
-    // Reset after showing success
+
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
@@ -74,20 +72,18 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-500/5 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div className="container-custom mx-auto relative" ref={ref}>
+    <section id="contact" className="section-padding section-subtle">
+      <div className="container-strict" ref={ref}>
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="max-w-2xl mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block text-primary-400 font-semibold text-sm uppercase tracking-wider mb-4"
+            className="text-sm font-medium uppercase tracking-wider mb-4 block"
+            style={{ color: 'var(--accent)' }}
           >
-            Get In Touch
+            Get in Touch
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -95,15 +91,15 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="section-title mb-6"
           >
-            Let's Build Something <span className="gradient-text">Amazing</span>
+            Let's build something great together
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="section-subtitle mx-auto"
+            className="section-subtitle"
           >
-            Ready to transform your online presence? Send us a message and we'll 
+            Ready to transform your online presence? Send us a message and we'll
             get back to you within 24 hours.
           </motion.p>
         </div>
@@ -117,11 +113,14 @@ export default function Contact() {
             className="lg:col-span-2 space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold font-display mb-4">
-                Let's Start a Conversation
+              <h3
+                className="text-xl font-semibold mb-4"
+                style={{ color: 'var(--ink)' }}
+              >
+                Let's start a conversation
               </h3>
-              <p className="text-dark-400 leading-relaxed">
-                We're excited to hear about your project. Whether you have a clear 
+              <p style={{ color: 'var(--ink-body)' }}>
+                We're excited to hear about your project. Whether you have a clear
                 vision or just an idea, we'll help you bring it to life.
               </p>
             </div>
@@ -129,34 +128,47 @@ export default function Contact() {
             {/* Contact Details */}
             <div className="space-y-4">
               <div className="flex items-center gap-4 p-4 glass-card">
-                <div className="w-12 h-12 rounded-xl bg-primary-500/10 border border-primary-500/20 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-primary-400" />
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center"
+                  style={{ backgroundColor: 'var(--accent-light)' }}
+                >
+                  <Mail className="w-5 h-5" style={{ color: 'var(--accent)' }} />
                 </div>
                 <div>
-                  <p className="text-sm text-dark-400">Email us at</p>
-                  <a href="mailto:hello@twinspark.dev" className="font-semibold hover:text-primary-400 transition-colors">
+                  <p className="text-sm" style={{ color: 'var(--ink-muted)' }}>Email us at</p>
+                  <a
+                    href="mailto:hello@twinspark.dev"
+                    className="font-medium hover:underline"
+                    style={{ color: 'var(--ink)' }}
+                  >
                     hello@twinspark.dev
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-4 p-4 glass-card">
-                <div className="w-12 h-12 rounded-xl bg-primary-500/10 border border-primary-500/20 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-primary-400" />
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center"
+                  style={{ backgroundColor: 'var(--accent-light)' }}
+                >
+                  <Clock className="w-5 h-5" style={{ color: 'var(--accent)' }} />
                 </div>
                 <div>
-                  <p className="text-sm text-dark-400">Response time</p>
-                  <p className="font-semibold">Within 24 hours</p>
+                  <p className="text-sm" style={{ color: 'var(--ink-muted)' }}>Response time</p>
+                  <p className="font-medium" style={{ color: 'var(--ink)' }}>Within 24 hours</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-4 p-4 glass-card">
-                <div className="w-12 h-12 rounded-xl bg-primary-500/10 border border-primary-500/20 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-primary-400" />
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center"
+                  style={{ backgroundColor: 'var(--accent-light)' }}
+                >
+                  <MapPin className="w-5 h-5" style={{ color: 'var(--accent)' }} />
                 </div>
                 <div>
-                  <p className="text-sm text-dark-400">Based in</p>
-                  <p className="font-semibold">India • Working Worldwide</p>
+                  <p className="text-sm" style={{ color: 'var(--ink-muted)' }}>Based in</p>
+                  <p className="font-medium" style={{ color: 'var(--ink)' }}>India • Working Worldwide</p>
                 </div>
               </div>
             </div>
@@ -166,7 +178,7 @@ export default function Contact() {
               href="https://wa.me/1234567890?text=Hi%20Twinspark!%20I'm%20interested%20in%20getting%20a%20website%20built."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 w-full py-4 rounded-xl bg-green-600 hover:bg-green-500 text-white font-semibold transition-colors"
+              className="flex items-center justify-center gap-3 w-full py-4 rounded-xl bg-green-600 hover:bg-green-500 text-white font-medium transition-colors"
             >
               <MessageCircle className="w-5 h-5" />
               Chat on WhatsApp
@@ -187,18 +199,25 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12"
                 >
-                  <div className="w-20 h-20 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle2 className="w-10 h-10 text-green-500" />
+                  <div
+                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                    style={{ backgroundColor: 'rgba(34, 197, 94, 0.1)' }}
+                  >
+                    <CheckCircle2 className="w-10 h-10 text-green-600" />
                   </div>
-                  <h3 className="text-2xl font-bold font-display mb-2">Message Sent!</h3>
-                  <p className="text-dark-400">
+                  <h3
+                    className="text-2xl font-semibold mb-2"
+                    style={{ color: 'var(--ink)' }}
+                  >
+                    Message Sent!
+                  </h3>
+                  <p style={{ color: 'var(--ink-body)' }}>
                     Thanks for reaching out. We'll get back to you within 24 hours.
                   </p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
-                    {/* Full Name */}
                     <div>
                       <label htmlFor="fullName" className="label-text">
                         Full Name <span className="text-red-500">*</span>
@@ -215,7 +234,6 @@ export default function Contact() {
                       />
                     </div>
 
-                    {/* Email */}
                     <div>
                       <label htmlFor="email" className="label-text">
                         Email Address <span className="text-red-500">*</span>
@@ -233,7 +251,6 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {/* Business Name */}
                   <div>
                     <label htmlFor="businessName" className="label-text">
                       Business / Company Name
@@ -250,7 +267,6 @@ export default function Contact() {
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-6">
-                    {/* Project Type */}
                     <div>
                       <label htmlFor="projectType" className="label-text">
                         Project Type <span className="text-red-500">*</span>
@@ -270,7 +286,6 @@ export default function Contact() {
                       </select>
                     </div>
 
-                    {/* Budget */}
                     <div>
                       <label htmlFor="budget" className="label-text">
                         Budget Range
@@ -290,7 +305,6 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {/* Message */}
                   <div>
                     <label htmlFor="message" className="label-text">
                       Project Details <span className="text-red-500">*</span>
@@ -307,7 +321,6 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -326,7 +339,10 @@ export default function Contact() {
                     )}
                   </button>
 
-                  <p className="text-center text-dark-500 text-sm">
+                  <p
+                    className="text-center text-sm"
+                    style={{ color: 'var(--ink-muted)' }}
+                  >
                     By submitting, you agree to our privacy policy.
                   </p>
                 </form>

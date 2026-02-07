@@ -17,9 +17,9 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="section-padding relative overflow-hidden bg-dark-900/30">
+    <section className="section-padding relative overflow-hidden bg-obsidian-900/30">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDEzOSwgOTIsIDI0NiwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-60"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDYsIDE4MiwgMjEyLCAwLjA1KSIvPjwvZz48L3N2Zz4=')] opacity-60"></div>
 
       <div className="container-custom mx-auto relative" ref={ref}>
         {/* Section Header */}
@@ -59,7 +59,7 @@ export default function Testimonials() {
         >
           <div className="glass-card p-8 relative">
             <Quote className="absolute top-6 left-6 w-10 h-10 text-primary-500/20" />
-            
+
             <div className="relative z-10">
               {/* Stars */}
               <div className="flex gap-1 mb-4">
@@ -74,7 +74,7 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className="text-dark-200 text-lg leading-relaxed mb-6">
+              <p className="text-obsidian-200 text-lg leading-relaxed mb-6">
                 "{testimonials[activeIndex].text}"
               </p>
 
@@ -87,7 +87,7 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <p className="font-semibold">{testimonials[activeIndex].name}</p>
-                  <p className="text-dark-400 text-sm">
+                  <p className="text-obsidian-400 text-sm">
                     {testimonials[activeIndex].role}, {testimonials[activeIndex].business}
                   </p>
                 </div>
@@ -99,7 +99,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-4 mt-6">
             <button
               onClick={prevTestimonial}
-              className="p-2 rounded-full bg-dark-800 border border-dark-700 hover:border-primary-500/50 transition-colors"
+              className="p-2 rounded-full bg-obsidian-800 border border-obsidian-700 hover:border-primary-500/50 transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -109,16 +109,15 @@ export default function Testimonials() {
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === activeIndex ? 'bg-primary-500' : 'bg-dark-600'
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-colors ${index === activeIndex ? 'bg-primary-500' : 'bg-obsidian-600'
+                    }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
             <button
               onClick={nextTestimonial}
-              className="p-2 rounded-full bg-dark-800 border border-dark-700 hover:border-primary-500/50 transition-colors"
+              className="p-2 rounded-full bg-obsidian-800 border border-obsidian-700 hover:border-primary-500/50 transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />
@@ -137,7 +136,7 @@ export default function Testimonials() {
               className="glass-card-hover p-8 relative"
             >
               <Quote className="absolute top-6 right-6 w-10 h-10 text-primary-500/20" />
-              
+
               <div className="relative z-10">
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
@@ -152,7 +151,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Quote */}
-                <p className="text-dark-300 leading-relaxed mb-6">
+                <p className="text-obsidian-300 leading-relaxed mb-6">
                   "{testimonial.text}"
                 </p>
 
@@ -165,7 +164,7 @@ export default function Testimonials() {
                   </div>
                   <div>
                     <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-dark-400 text-sm">
+                    <p className="text-obsidian-400 text-sm">
                       {testimonial.role}, {testimonial.business}
                     </p>
                   </div>
