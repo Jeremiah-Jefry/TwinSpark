@@ -1,12 +1,12 @@
 export const team = [
   {
     id: 1,
-    name: 'Joe Daniel A',
-    role: 'Full Stack Developer',
-    specialization: 'Frontend + Backend',
-    image: '/team/joe.jpg',
-    bio: 'Passionate about building scalable web applications with clean, maintainable code. Specializes in React, Node.js, and database architecture.',
-    skills: ['React', 'Node.js', 'PostgreSQL', 'MongoDB', 'TypeScript', 'AWS'],
+    name: 'Jeremiah Jefry G',
+    role: 'Lead Developer & AI Specialist',
+    specialization: 'Engineering Lead',
+    image: '/team/jeremiah.jpg',
+    bio: 'Architects scalable systems and builds intelligent AI integrations. Obsessed with clean code, performance optimization, and automation workflows.',
+    skills: ['React', 'Next.js', 'Node.js', 'Python', 'OpenAI', 'n8n'],
     social: {
       github: '#',
       linkedin: '#',
@@ -15,12 +15,12 @@ export const team = [
   },
   {
     id: 2,
-    name: 'Jeremiah Jefry G',
-    role: 'Full Stack Developer',
-    specialization: 'UI + Development',
-    image: '/team/jeremiah.jpg',
-    bio: 'Design-focused developer who bridges the gap between aesthetics and functionality. Creates beautiful, intuitive interfaces that users love.',
-    skills: ['UI/UX Design', 'React', 'Tailwind CSS', 'Framer Motion', 'Figma', 'Next.js'],
+    name: 'Joe Daniel A',
+    role: 'Lead Designer & Creative Strategist',
+    specialization: 'Creative Lead',
+    image: '/team/joe.jpg',
+    bio: 'Transforms ideas into stunning visual experiences. Specializes in UI/UX design, brand identity, and crafting interfaces that convert.',
+    skills: ['UI/UX Design', 'Figma', 'Tailwind CSS', 'Framer Motion', 'Branding', 'Webflow'],
     social: {
       github: '#',
       linkedin: '#',

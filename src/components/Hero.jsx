@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, Brain, Code2, Cpu } from 'lucide-react';
+import { ArrowRight, Code2, Brain, Cpu, Zap } from 'lucide-react';
 
 const techPills = [
   { name: 'React', icon: Code2, delay: 0 },
   { name: 'AI', icon: Brain, delay: 0.1 },
-  { name: 'Node.js', icon: Cpu, delay: 0.2 },
-  { name: 'Next.js', icon: Zap, delay: 0.3 },
+  { name: 'Vite', icon: Zap, delay: 0.2 },
+  { name: 'n8n', icon: Cpu, delay: 0.3 },
 ];
 
 export default function Hero() {
@@ -14,32 +14,15 @@ export default function Hero() {
   };
 
   const scrollToWork = () => {
-    document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('#case-studies')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-aurora">
       {/* Animated Gradient Orbs */}
-      <div className="gradient-orb gradient-orb-cyan w-[600px] h-[600px] -top-40 -left-40 float-slow" />
-      <div className="gradient-orb gradient-orb-violet w-[500px] h-[500px] top-1/4 right-0 float" />
-      <div className="gradient-orb gradient-orb-pink w-[400px] h-[400px] bottom-0 left-1/3 float-reverse" />
-
-      {/* Rotating Gradient Ring - Behind headline */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-          className="w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full opacity-20"
-          style={{
-            background: 'conic-gradient(from 0deg, transparent, rgba(59, 130, 246, 0.3), transparent, rgba(139, 92, 246, 0.3), transparent, rgba(236, 72, 153, 0.3), transparent)',
-          }}
-        />
-      </div>
-
-      {/* Pulsing Center Glow */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[400px] h-[400px] bg-gradient-to-r from-blue-500/10 via-violet-500/15 to-pink-500/10 rounded-full blur-3xl pulse-glow" />
-      </div>
+      <div className="gradient-orb gradient-orb-cyan w-[500px] h-[500px] -top-32 -left-32 float-slow" />
+      <div className="gradient-orb gradient-orb-violet w-[400px] h-[400px] top-1/4 right-0 float" />
+      <div className="gradient-orb gradient-orb-pink w-[300px] h-[300px] bottom-0 left-1/3 float-reverse" />
 
       <div className="container-custom relative z-10 pt-14">
         {/* Hybrid Layout: Left Text + Right Graphics */}
@@ -52,73 +35,77 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="badge badge-gradient mb-5 inline-flex items-center gap-2 text-xs">
-                <Sparkles className="w-3.5 h-3.5 text-violet-500" />
-                Web Development + AI Automation
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 text-xs font-medium text-violet-700 bg-violet-50 border border-violet-200 rounded-full">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                Available for Projects
               </span>
             </motion.div>
 
-            {/* Main Headline - Tighter */}
+            {/* Main Headline - Power Duo Statement */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.25rem] font-semibold leading-[1.1] tracking-tight mb-5"
+              className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] font-semibold leading-[1.15] tracking-tight mb-5"
             >
-              <span className="text-slate-900">We are </span>
-              <span className="gradient-text">Twinspark</span>
+              <span className="text-slate-900">We build </span>
+              <span className="gradient-text">high-performance</span>
               <br />
-              <span className="text-slate-400 text-[0.85em]">Digital experiences that inspire.</span>
+              <span className="gradient-text">digital products.</span>
             </motion.h1>
 
-            {/* Subheadline - Tighter */}
+            {/* Subheadline - Partnership Identity */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base md:text-lg text-slate-600 leading-relaxed max-w-lg mb-8"
+              className="text-base md:text-lg text-slate-600 leading-relaxed max-w-md mb-4"
             >
-              A boutique studio crafting high-performance websites and intelligent
-              automation systems for ambitious businesses.
+              The combined expertise of <strong className="text-slate-900">Jeremiah Jefry</strong> & <strong className="text-slate-900">Joe Daniel</strong>.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="text-sm text-slate-500 leading-relaxed max-w-md mb-8"
+            >
+              Web applications, AI automation, and modern UI — built by two specialists who obsess over every detail.
             </motion.p>
 
-            {/* CTAs - Left aligned */}
+            {/* CTAs - View Work + Contact Us */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col sm:flex-row gap-3"
             >
-              <button onClick={scrollToContact} className="btn-primary text-sm py-3 px-6">
-                Start Your Project
+              <button onClick={scrollToWork} className="btn-primary text-sm py-3 px-6">
+                View Our Work
                 <ArrowRight className="w-4 h-4" />
               </button>
-              <button onClick={scrollToWork} className="btn-secondary text-sm py-3 px-6">
-                View Our Work
+              <button onClick={scrollToContact} className="btn-secondary text-sm py-3 px-6">
+                Contact Us
               </button>
             </motion.div>
 
-            {/* Trust Stats - Compact inline */}
+            {/* Trust Indicators - Partnership */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="mt-10"
             >
-              <div className="inline-flex flex-wrap items-center gap-6 py-4 px-6 glass-card">
-                <div className="text-center">
-                  <div className="text-lg font-bold gradient-text-static">50+</div>
-                  <div className="text-xs text-slate-500">Projects</div>
+              <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-slate-900">2</span> founders
                 </div>
-                <div className="w-px h-8 bg-gradient-to-b from-transparent via-slate-200 to-transparent" />
-                <div className="text-center">
-                  <div className="text-lg font-bold gradient-text-static">100%</div>
-                  <div className="text-xs text-slate-500">Satisfaction</div>
+                <div className="w-1 h-1 bg-slate-300 rounded-full" />
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-slate-900">20+</span> projects delivered
                 </div>
-                <div className="w-px h-8 bg-gradient-to-b from-transparent via-slate-200 to-transparent" />
-                <div className="text-center">
-                  <div className="text-lg font-bold gradient-text-static">24h</div>
-                  <div className="text-xs text-slate-500">Response</div>
+                <div className="w-1 h-1 bg-slate-300 rounded-full" />
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-slate-900">100%</span> client satisfaction
                 </div>
               </div>
             </motion.div>
@@ -130,14 +117,14 @@ export default function Hero() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-              className="absolute w-[400px] h-[400px] xl:w-[480px] xl:h-[480px] rounded-full opacity-30"
+              className="absolute w-[350px] h-[350px] xl:w-[420px] xl:h-[420px] rounded-full opacity-30"
               style={{
                 background: 'conic-gradient(from 0deg, transparent, rgba(59, 130, 246, 0.4), transparent, rgba(139, 92, 246, 0.4), transparent, rgba(236, 72, 153, 0.4), transparent)',
               }}
             />
 
             {/* Pulsing Center Glow */}
-            <div className="w-[280px] h-[280px] xl:w-[340px] xl:h-[340px] bg-gradient-to-r from-blue-500/15 via-violet-500/20 to-pink-500/15 rounded-full blur-2xl pulse-glow" />
+            <div className="w-[240px] h-[240px] xl:w-[300px] xl:h-[300px] bg-gradient-to-r from-blue-500/15 via-violet-500/20 to-pink-500/15 rounded-full blur-2xl pulse-glow" />
 
             {/* Floating Tech Pills - Around Graphics */}
             {techPills.map((pill, index) => {
@@ -174,19 +161,19 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.button
           onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
-          animate={{ y: [0, 8, 0] }}
+          animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-8 h-12 rounded-full border-2 border-slate-300 flex items-start justify-center pt-2 hover:border-violet-400 transition-colors"
+          className="w-7 h-10 rounded-full border-2 border-slate-300 flex items-start justify-center pt-2 hover:border-violet-400 transition-colors"
           aria-label="Scroll down"
         >
           <motion.div
-            animate={{ y: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
+            animate={{ y: [0, 6, 0], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-1.5 h-3 rounded-full bg-gradient-to-b from-violet-400 to-pink-400"
+            className="w-1 h-2.5 rounded-full bg-gradient-to-b from-violet-400 to-pink-400"
           />
         </motion.button>
       </motion.div>
