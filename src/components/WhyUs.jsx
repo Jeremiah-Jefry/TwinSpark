@@ -1,12 +1,12 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { 
-  Palette, 
-  Zap, 
-  Smartphone, 
-  Code2, 
-  Search, 
-  Target, 
+import {
+  Palette,
+  Zap,
+  Smartphone,
+  Code2,
+  Search,
+  Target,
   HeadphonesIcon,
   Shield
 } from 'lucide-react';
@@ -108,7 +108,7 @@ export default function WhyUs() {
               <h3 className="text-lg font-bold font-display mb-2 group-hover:text-primary-400 transition-colors">
                 {reason.title}
               </h3>
-              <p className="text-dark-400 text-sm">
+              <p className="text-obsidian-400 text-sm">
                 {reason.description}
               </p>
             </motion.div>
@@ -120,7 +120,7 @@ export default function WhyUs() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16 py-12 border-t border-b border-dark-800"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16 py-12 border-t border-b border-obsidian-800"
         >
           {[
             { value: '50+', label: 'Projects Delivered' },
@@ -132,7 +132,7 @@ export default function WhyUs() {
               <div className="text-3xl lg:text-4xl font-bold gradient-text mb-2">
                 {stat.value}
               </div>
-              <div className="text-dark-400 text-sm">
+              <div className="text-obsidian-400 text-sm">
                 {stat.label}
               </div>
             </div>

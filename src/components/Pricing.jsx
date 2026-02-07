@@ -37,7 +37,7 @@ export default function Pricing() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="section-subtitle mx-auto"
           >
-            Choose a plan that fits your needs. All plans include our signature 
+            Choose a plan that fits your needs. All plans include our signature
             quality and attention to detail.
           </motion.p>
         </div>
@@ -50,9 +50,8 @@ export default function Pricing() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              className={`relative glass-card p-8 flex flex-col ${
-                plan.popular ? 'border-primary-500/50 shadow-glow' : ''
-              }`}
+              className={`relative glass-card p-8 flex flex-col ${plan.popular ? 'border-primary-500/50 shadow-glow' : ''
+                }`}
             >
               {/* Popular Badge */}
               {plan.popular && (
@@ -67,17 +66,17 @@ export default function Pricing() {
               {/* Plan Header */}
               <div className="text-center mb-8">
                 <h3 className="text-xl font-bold font-display mb-2">{plan.name}</h3>
-                <p className="text-dark-400 text-sm mb-4">{plan.description}</p>
+                <p className="text-obsidian-400 text-sm mb-4">{plan.description}</p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-dark-400 text-lg">{plan.currency}</span>
+                  <span className="text-obsidian-400 text-lg">{plan.currency}</span>
                   <span className="text-5xl font-bold gradient-text">{plan.price}</span>
                 </div>
-                <p className="text-dark-500 text-sm mt-2">{plan.period}</p>
+                <p className="text-obsidian-500 text-sm mt-2">{plan.period}</p>
               </div>
 
               {/* Delivery Time */}
-              <div className="flex items-center justify-center gap-2 py-3 mb-6 bg-dark-800/50 rounded-lg border border-dark-700">
-                <span className="text-dark-400 text-sm">Delivery:</span>
+              <div className="flex items-center justify-center gap-2 py-3 mb-6 bg-obsidian-800/50 rounded-lg border border-obsidian-700">
+                <span className="text-obsidian-400 text-sm">Delivery:</span>
                 <span className="text-primary-400 font-semibold text-sm">{plan.deliveryTime}</span>
               </div>
 
@@ -88,9 +87,9 @@ export default function Pricing() {
                     {feature.included ? (
                       <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                     ) : (
-                      <X className="w-5 h-5 text-dark-600 flex-shrink-0 mt-0.5" />
+                      <X className="w-5 h-5 text-obsidian-600 flex-shrink-0 mt-0.5" />
                     )}
-                    <span className={feature.included ? 'text-dark-300' : 'text-dark-500'}>
+                    <span className={feature.included ? 'text-obsidian-300' : 'text-obsidian-500'}>
                       {feature.text}
                     </span>
                   </li>
@@ -104,11 +103,10 @@ export default function Pricing() {
                   e.preventDefault();
                   document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`w-full py-4 rounded-xl font-semibold text-center transition-all duration-300 flex items-center justify-center gap-2 ${
-                  plan.popular
+                className={`w-full py-4 rounded-xl font-semibold text-center transition-all duration-300 flex items-center justify-center gap-2 ${plan.popular
                     ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-500 hover:to-accent-500 shadow-lg shadow-primary-500/25'
-                    : 'bg-dark-800 border border-dark-600 text-white hover:border-primary-500/50'
-                }`}
+                    : 'bg-obsidian-800 border border-obsidian-600 text-white hover:border-primary-500/50'
+                  }`}
               >
                 {plan.cta}
                 <ArrowRight className="w-4 h-4" />
@@ -124,7 +122,7 @@ export default function Pricing() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="text-center mt-12"
         >
-          <p className="text-dark-400 mb-4">
+          <p className="text-obsidian-400 mb-4">
             Have a larger or more complex project in mind?
           </p>
           <a

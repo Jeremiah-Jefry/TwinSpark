@@ -5,7 +5,7 @@ import { faqs } from '../data/faq';
 
 function FAQItem({ faq, isOpen, onToggle }) {
   return (
-    <div className="border-b border-dark-700/50 last:border-0">
+    <div className="border-b border-obsidian-700/50 last:border-0">
       <button
         onClick={onToggle}
         className="w-full py-6 flex items-start justify-between gap-4 text-left group"
@@ -14,10 +14,9 @@ function FAQItem({ faq, isOpen, onToggle }) {
         <span className={`font-semibold transition-colors ${isOpen ? 'text-primary-400' : 'text-white group-hover:text-primary-400'}`}>
           {faq.question}
         </span>
-        <ChevronDown 
-          className={`w-5 h-5 text-dark-400 flex-shrink-0 transition-transform duration-300 ${
-            isOpen ? 'rotate-180 text-primary-400' : ''
-          }`} 
+        <ChevronDown
+          className={`w-5 h-5 text-obsidian-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary-400' : ''
+            }`}
         />
       </button>
       <AnimatePresence>
@@ -29,7 +28,7 @@ function FAQItem({ faq, isOpen, onToggle }) {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <p className="text-dark-400 pb-6 leading-relaxed">
+            <p className="text-obsidian-400 pb-6 leading-relaxed">
               {faq.answer}
             </p>
           </motion.div>
@@ -54,9 +53,9 @@ export default function FAQ() {
   const rightFaqs = faqs.slice(midpoint);
 
   return (
-    <section className="section-padding relative overflow-hidden bg-dark-900/30">
+    <section className="section-padding relative overflow-hidden bg-obsidian-900/30">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDEzOSwgOTIsIDI0NiwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-60"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDYsIDE4MiwgMjEyLCAwLjA1KSIvPjwvZz48L3N2Zz4=')] opacity-60"></div>
 
       <div className="container-custom mx-auto relative" ref={ref}>
         {/* Section Header */}
@@ -83,7 +82,7 @@ export default function FAQ() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="section-subtitle mx-auto"
           >
-            Got questions? We've got answers. If you don't see your question here, 
+            Got questions? We've got answers. If you don't see your question here,
             feel free to reach out.
           </motion.p>
         </div>
@@ -129,7 +128,7 @@ export default function FAQ() {
         >
           <div className="inline-flex items-center gap-3 glass-card px-6 py-4">
             <HelpCircle className="w-5 h-5 text-primary-400" />
-            <span className="text-dark-300">
+            <span className="text-obsidian-300">
               Still have questions?{' '}
               <a
                 href="#contact"

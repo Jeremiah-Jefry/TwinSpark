@@ -8,9 +8,9 @@ export default function CaseStudies() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="section-padding relative overflow-hidden bg-dark-900/30">
+    <section className="section-padding relative overflow-hidden bg-obsidian-900/30">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDEzOSwgOTIsIDI0NiwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-60"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDYsIDE4MiwgMjEyLCAwLjA1KSIvPjwvZz48L3N2Zz4=')] opacity-60"></div>
 
       <div className="container-custom mx-auto relative" ref={ref}>
         {/* Section Header */}
@@ -76,7 +76,7 @@ export default function CaseStudies() {
                     <h4 className="text-sm font-semibold text-primary-400 uppercase tracking-wider mb-2">
                       {study.problem.title}
                     </h4>
-                    <p className="text-dark-300 text-sm leading-relaxed">
+                    <p className="text-obsidian-300 text-sm leading-relaxed">
                       {study.problem.description}
                     </p>
                   </div>
@@ -86,7 +86,7 @@ export default function CaseStudies() {
                     <h4 className="text-sm font-semibold text-accent-400 uppercase tracking-wider mb-2">
                       {study.solution.title}
                     </h4>
-                    <p className="text-dark-300 text-sm leading-relaxed">
+                    <p className="text-obsidian-300 text-sm leading-relaxed">
                       {study.solution.description}
                     </p>
                   </div>
@@ -94,11 +94,11 @@ export default function CaseStudies() {
                   {/* Results Stats */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                     {study.outcome.stats.map((stat, idx) => (
-                      <div key={idx} className="text-center p-3 bg-dark-800/50 rounded-lg">
+                      <div key={idx} className="text-center p-3 bg-obsidian-800/50 rounded-lg">
                         <div className="text-xl lg:text-2xl font-bold gradient-text">
                           {stat.value}
                         </div>
-                        <div className="text-xs text-dark-400 mt-1">
+                        <div className="text-xs text-obsidian-400 mt-1">
                           {stat.label}
                         </div>
                       </div>
@@ -106,9 +106,9 @@ export default function CaseStudies() {
                   </div>
 
                   {/* Testimonial Quote */}
-                  <div className="relative p-4 bg-dark-800/30 rounded-lg border border-dark-700/50">
+                  <div className="relative p-4 bg-obsidian-800/30 rounded-lg border border-obsidian-700/50">
                     <Quote className="absolute top-4 left-4 w-6 h-6 text-primary-500/30" />
-                    <p className="text-dark-300 text-sm italic pl-8">
+                    <p className="text-obsidian-300 text-sm italic pl-8">
                       "{study.testimonial.text}"
                     </p>
                     <p className="text-primary-400 text-sm font-medium mt-2 pl-8">
@@ -140,7 +140,7 @@ export default function CaseStudies() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <p className="text-dark-400 mb-4">
+          <p className="text-obsidian-400 mb-4">
             Ready to be our next success story?
           </p>
           <a

@@ -28,13 +28,37 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Scroll reveal observer
+  useEffect(() => {
+    if (isLoading) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    // Observe all elements with reveal-on-scroll class
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [isLoading]);
+
   return (
     <>
       <AnimatePresence mode="wait">
         {isLoading && <Loader key="loader" />}
       </AnimatePresence>
 
-      <div className={`${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}>
+      {/* Aurora background wrapper */}
+      <div className={`bg-aurora ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}>
         <Navbar />
         <main>
           <Hero />

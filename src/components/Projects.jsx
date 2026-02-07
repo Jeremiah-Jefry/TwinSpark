@@ -39,7 +39,7 @@ export default function Projects() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="section-subtitle mx-auto"
           >
-            Real results for real businesses. Each project is crafted with precision 
+            Real results for real businesses. Each project is crafted with precision
             to deliver measurable impact.
           </motion.p>
         </div>
@@ -60,7 +60,7 @@ export default function Projects() {
               <div className="relative h-56 overflow-hidden">
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-80`}></div>
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiLz48cGF0aCBkPSJNMjAgMjBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMikiLz48L2c+PC9zdmc+')] opacity-50"></div>
-                
+
                 {/* Project Name Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-3xl font-bold font-display text-white/90 text-center px-4">
@@ -72,7 +72,7 @@ export default function Projects() {
                 <motion.div
                   initial={false}
                   animate={{ opacity: hoveredId === project.id ? 1 : 0 }}
-                  className="absolute inset-0 bg-dark-950/80 flex items-center justify-center gap-4"
+                  className="absolute inset-0 bg-obsidian-950/80 flex items-center justify-center gap-4"
                 >
                   <a
                     href={project.liveUrl}
@@ -92,7 +92,7 @@ export default function Projects() {
 
                 {/* Industry Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-dark-950/60 backdrop-blur-sm text-xs font-medium text-white border border-white/10">
+                  <span className="px-3 py-1 rounded-full bg-obsidian-950/60 backdrop-blur-sm text-xs font-medium text-white border border-white/10">
                     {project.industry}
                   </span>
                 </div>
@@ -103,7 +103,7 @@ export default function Projects() {
                 <h3 className="text-xl font-bold font-display mb-2 group-hover:text-primary-400 transition-colors">
                   {project.name}
                 </h3>
-                <p className="text-dark-400 text-sm mb-4 line-clamp-2">
+                <p className="text-obsidian-400 text-sm mb-4 line-clamp-2">
                   {project.description}
                 </p>
 
@@ -112,7 +112,7 @@ export default function Projects() {
                   {project.features.map((feature, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-1 text-xs bg-dark-800 border border-dark-700 rounded-md text-dark-300"
+                      className="px-2 py-1 text-xs bg-obsidian-800 border border-obsidian-700 rounded-md text-obsidian-300"
                     >
                       {feature}
                     </span>

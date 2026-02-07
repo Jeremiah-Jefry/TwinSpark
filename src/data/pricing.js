@@ -23,7 +23,7 @@ export const pricingPlans = [
       { text: 'Priority support', included: false }
     ],
     cta: 'Get Started',
-    color: 'from-dark-600 to-dark-700'
+    color: 'from-obsidian-600 to-obsidian-700'
   },
   {
     id: 2,
