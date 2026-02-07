@@ -1,52 +1,42 @@
 export const faqs = [
   {
     id: 1,
-    question: 'How long will it take to build my website?',
-    answer: 'Project timelines depend on complexity. A single-page landing site takes 5-7 business days, a standard business website takes 10-14 days, and complex custom projects take 3-4 weeks. We always provide a clear timeline before starting and keep you updated throughout the process.'
+    question: 'What technologies do you use for web development?',
+    answer: 'We specialize in modern, high-performance stacks: Next.js 14+ with React Server Components, TypeScript, Tailwind CSS, and headless CMS solutions like Sanity or Contentful. Every project is built with performance, SEO, and scalability as core priorities.'
   },
   {
     id: 2,
-    question: 'What information do you need from me to get started?',
-    answer: 'To begin, we need your brand assets (logo, colors, fonts if available), content (text, images, videos), reference websites you like, and a clear understanding of your goals. Don\'t worry if you don\'t have everything ready – we\'ll guide you through the process and can help source professional images and copywriting.'
+    question: 'How do you integrate AI into websites?',
+    answer: 'We offer AI integrations ranging from intelligent chatbots (powered by GPT-4/Claude) to custom automation workflows. This includes lead qualification bots, smart search, content personalization, and AI-powered analytics dashboards that help you understand user behavior.'
   },
   {
     id: 3,
-    question: 'Do you provide hosting and domain registration?',
-    answer: 'Yes! We offer complete hosting solutions with SSL certificates, daily backups, and 99.9% uptime guarantee. We can also help you register and configure your domain. Hosting is billed separately on a monthly or annual basis with flexible plans to suit your traffic needs.'
+    question: 'What does "AI Automation" include?',
+    answer: 'AI Automation covers workflow optimization using tools like n8n, Make, or custom solutions. Examples include automated lead nurturing sequences, intelligent email responses, data extraction from documents, CRM synchronization, and custom GPT-powered tools tailored to your business processes.'
   },
   {
     id: 4,
-    question: 'Can you redesign my existing website?',
-    answer: 'Absolutely! Website redesigns are one of our core services. We\'ll analyze your current site, identify areas for improvement, and create a modern design that maintains your brand identity while dramatically improving user experience, performance, and conversion rates.'
+    question: 'How long does a typical project take?',
+    answer: 'MVP Build projects take 7-10 business days. Growth Scale projects require 14-21 days for the additional complexity. Enterprise AI solutions are scoped individually but typically range from 4-6 weeks. We provide detailed timelines during our discovery call.'
   },
   {
     id: 5,
-    question: 'Will my website be mobile responsive?',
-    answer: 'Every website we build is 100% mobile responsive, following a mobile-first approach. Your site will look perfect and function flawlessly on all devices – smartphones, tablets, laptops, and desktops. We test across multiple browsers and screen sizes before delivery.'
+    question: 'What kind of SEO optimization do you provide?',
+    answer: 'Every project includes technical SEO: semantic HTML, meta optimization, schema markup, Core Web Vitals optimization, and mobile-first indexing preparation. Growth and Enterprise plans add keyword research, content strategy, and ongoing SEO monitoring with monthly reports.'
   },
   {
     id: 6,
-    question: 'What is your payment process?',
-    answer: 'We work with a milestone-based payment structure: 40% upfront to begin the project, 30% upon design approval, and 30% upon final delivery. We accept bank transfers, PayPal, and major credit cards. For larger projects, we can discuss custom payment arrangements.'
+    question: 'Do you provide post-launch support?',
+    answer: 'Absolutely. MVP Build includes 30 days of bug-fix support. Growth Scale provides 60 days of priority support including minor updates. Enterprise AI comes with 90 days of dedicated support plus optional ongoing maintenance contracts for long-term partnership.'
   },
   {
     id: 7,
-    question: 'Do you offer support after the website launches?',
-    answer: 'Yes! All our packages include post-launch support ranging from 30 to 90 days depending on your plan. During this period, we handle bug fixes, minor updates, and provide guidance. We also offer ongoing maintenance packages for long-term support and regular updates.'
+    question: 'Can you work with our existing systems?',
+    answer: 'Yes, we specialize in integrations. Whether it\'s connecting to your CRM (Salesforce, HubSpot), payment processors (Stripe, PayPal), email platforms (Mailchimp, Klaviyo), or custom APIs, we build seamless connections that enhance your existing workflow.'
   },
   {
     id: 8,
-    question: 'Can you help with content and copywriting?',
-    answer: 'While our core expertise is design and development, we can recommend professional copywriters we partner with. We also provide content guidelines and structure recommendations to help you create compelling website copy that converts visitors into customers.'
-  },
-  {
-    id: 9,
-    question: 'What if I\'m not satisfied with the design?',
-    answer: 'Your satisfaction is our priority. We include multiple revision rounds in every package and work closely with you throughout the design process. We start with wireframes and mockups for your approval before development begins, ensuring we capture your vision perfectly.'
-  },
-  {
-    id: 10,
-    question: 'Do you build e-commerce websites?',
-    answer: 'Yes, we build e-commerce solutions ranging from simple product catalogs to full-featured online stores with inventory management, payment processing, and shipping integration. E-commerce projects are priced based on requirements – contact us for a custom quote.'
+    question: 'What is your revision and feedback process?',
+    answer: 'We use a structured milestone approach. You receive design mockups for approval before development begins, then review a staging environment before launch. MVP includes 2 revision rounds, Growth Scale offers unlimited revisions, and Enterprise includes dedicated revision sprints.'
   }
 ];

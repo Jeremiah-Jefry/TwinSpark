@@ -149,6 +149,7 @@
   }
 
   html {
+    font-size: 15px;
     scroll-behavior: smooth;
   }
 
@@ -248,7 +249,7 @@
   }
 
   .container-custom {
-    max-width: 80rem;
+    max-width: 72rem; /* Narrowed from 80rem for professional density */
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.5rem;
@@ -264,21 +265,14 @@
 
   /* ===== SECTIONS ===== */
   .section-padding {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   @media (min-width: 768px) {
     .section-padding {
-      padding-top: 7rem;
-      padding-bottom: 7rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .section-padding {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
   }
 
@@ -305,8 +299,8 @@
 
   /* ===== TYPOGRAPHY ===== */
   .section-title {
-    font-size: 1.875rem;
-    line-height: 1.15;
+    font-size: 1.5rem; /* Tighter: was 1.875rem */
+    line-height: 1.2;
     font-weight: 600;
     color: var(--ink);
     letter-spacing: -0.025em;
@@ -314,27 +308,35 @@
 
   @media (min-width: 768px) {
     .section-title {
-      font-size: 2.5rem;
+      font-size: 1.875rem; /* Tighter: was 2.5rem */
     }
   }
 
   @media (min-width: 1024px) {
     .section-title {
-      font-size: 3rem;
+      font-size: 2.25rem; /* Tighter: was 3rem */
     }
   }
 
   .section-subtitle {
-    font-size: 1.125rem;
-    line-height: 1.7;
+    font-size: 0.9375rem; /* Tighter: was 1.125rem (text-base) */
+    line-height: 1.6;
     color: var(--ink-body);
-    max-width: 42rem;
+    max-width: 48rem; /* Constrained width */
   }
 
   @media (min-width: 768px) {
     .section-subtitle {
-      font-size: 1.25rem;
+      font-size: 1rem; /* Tighter: was 1.25rem */
     }
+  }
+
+  /* Center-aligned text constraint */
+  .text-center .section-subtitle,
+  .section-subtitle.mx-auto {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* ===== HOLOGRAPHIC GLASS CARDS ===== */

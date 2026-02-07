@@ -35,48 +35,47 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-            ? 'glass-card rounded-none border-t-0 border-x-0'
-            : 'bg-transparent'
+          ? 'glass-card rounded-none border-t-0 border-x-0'
+          : 'bg-transparent'
           }`}
       >
-        <div className="container-strict">
-          <nav className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <a href="/" className="group flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 via-violet-500 to-pink-500 flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-white" />
+        <div className="container-custom">
+          {/* Micro Nav: h-14 (56px) - Refined */}
+          <nav className="flex items-center justify-between h-14">
+            {/* Logo - Compact */}
+            <a href="/" className="group flex items-center gap-1.5">
+              <div className="w-7 h-7 rounded-md bg-gradient-to-br from-blue-500 via-violet-500 to-pink-500 flex items-center justify-center">
+                <Sparkles className="w-3.5 h-3.5 text-white" />
               </div>
-              <span className="text-xl font-semibold tracking-tight">
+              <span className="text-base font-semibold tracking-tight">
                 <span className="text-slate-900">Twin</span>
                 <span className="gradient-text-static">spark</span>
               </span>
             </a>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
+            {/* Desktop Navigation - Subtle & Elegant */}
+            <div className="hidden lg:flex items-center gap-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full 
-                           hover:text-slate-900 hover:bg-white/50 
-                           transition-all duration-200"
+                  className="text-[13px] font-medium text-slate-500 hover:text-slate-900 transition-colors duration-200"
                 >
                   {link.name}
                 </a>
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button - Compact */}
             <div className="hidden lg:block">
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, '#contact')}
-                className="btn-primary text-sm"
+                className="inline-flex items-center gap-1.5 py-2 px-4 text-xs font-medium text-white bg-gradient-to-r from-violet-500 to-pink-500 rounded-full hover:from-violet-600 hover:to-pink-600 transition-all duration-200 shadow-sm"
               >
-                Start a Project
-                <ArrowRight className="w-4 h-4" />
+                Book Consultation
+                <ArrowRight className="w-3 h-3" />
               </a>
             </div>
 
@@ -155,9 +154,9 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="btn-primary w-full justify-center"
+                  className="w-full py-3 text-sm font-medium text-white text-center bg-gradient-to-r from-violet-500 to-pink-500 rounded-full flex items-center justify-center gap-2"
                 >
-                  Start a Project
+                  Book Consultation
                   <ArrowRight className="w-4 h-4" />
                 </motion.a>
               </div>

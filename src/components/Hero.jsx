@@ -41,114 +41,131 @@ export default function Hero() {
         <div className="w-[400px] h-[400px] bg-gradient-to-r from-blue-500/10 via-violet-500/15 to-pink-500/10 rounded-full blur-3xl pulse-glow" />
       </div>
 
-      <div className="container-strict relative z-10 pt-20">
-        {/* Floating Tech Pills - Orbital Display */}
-        <div className="absolute inset-0 pointer-events-none hidden lg:block">
-          {techPills.map((pill, index) => {
-            const positions = [
-              { top: '15%', left: '8%' },
-              { top: '25%', right: '10%' },
-              { bottom: '30%', left: '5%' },
-              { bottom: '20%', right: '8%' },
-            ];
-            const pos = positions[index];
-            return (
-              <motion.div
-                key={pill.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8 + pill.delay, duration: 0.5 }}
-                className={`absolute tech-pill ${index % 2 === 0 ? 'float' : 'float-reverse'}`}
-                style={{
-                  ...pos,
-                  animationDelay: `${index * 0.5}s`
-                }}
-              >
-                <pill.icon className="w-3.5 h-3.5 text-violet-500" />
-                {pill.name}
-              </motion.div>
-            );
-          })}
-        </div>
+      <div className="container-custom relative z-10 pt-14">
+        {/* Hybrid Layout: Left Text + Right Graphics */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[calc(100vh-120px)]">
+          {/* Left: Text Content - LEFT ALIGNED */}
+          <div className="text-left">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="badge badge-gradient mb-5 inline-flex items-center gap-2 text-xs">
+                <Sparkles className="w-3.5 h-3.5 text-violet-500" />
+                Web Development + AI Automation
+              </span>
+            </motion.div>
 
-        {/* Center Content */}
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="badge badge-gradient mb-8 inline-flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-violet-500" />
-              Web Development + AI Automation
-            </span>
-          </motion.div>
+            {/* Main Headline - Tighter */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.25rem] font-semibold leading-[1.1] tracking-tight mb-5"
+            >
+              <span className="text-slate-900">We are </span>
+              <span className="gradient-text">Twinspark</span>
+              <br />
+              <span className="text-slate-400 text-[0.85em]">Digital experiences that inspire.</span>
+            </motion.h1>
 
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight mb-8"
-          >
-            <span className="text-slate-900">We are </span>
-            <span className="gradient-text">Twinspark</span>
-            <br />
-            <span className="text-slate-400">Digital experiences that inspire.</span>
-          </motion.h1>
+            {/* Subheadline - Tighter */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base md:text-lg text-slate-600 leading-relaxed max-w-lg mb-8"
+            >
+              A boutique studio crafting high-performance websites and intelligent
+              automation systems for ambitious businesses.
+            </motion.p>
 
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto mb-12"
-          >
-            A boutique studio crafting high-performance websites and intelligent
-            automation systems for ambitious businesses that want to stand out.
-          </motion.p>
+            {/* CTAs - Left aligned */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row gap-3"
+            >
+              <button onClick={scrollToContact} className="btn-primary text-sm py-3 px-6">
+                Start Your Project
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <button onClick={scrollToWork} className="btn-secondary text-sm py-3 px-6">
+                View Our Work
+              </button>
+            </motion.div>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <button onClick={scrollToContact} className="btn-primary">
-              Start Your Project
-              <ArrowRight className="w-4 h-4" />
-            </button>
-            <button onClick={scrollToWork} className="btn-secondary">
-              View Our Work
-            </button>
-          </motion.div>
-
-          {/* Trust Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-20"
-          >
-            <div className="inline-flex flex-wrap items-center justify-center gap-8 md:gap-12 py-6 px-8 glass-card">
-              <div className="text-center">
-                <div className="text-2xl font-bold gradient-text-static">50+</div>
-                <div className="text-sm text-slate-500">Projects</div>
+            {/* Trust Stats - Compact inline */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mt-10"
+            >
+              <div className="inline-flex flex-wrap items-center gap-6 py-4 px-6 glass-card">
+                <div className="text-center">
+                  <div className="text-lg font-bold gradient-text-static">50+</div>
+                  <div className="text-xs text-slate-500">Projects</div>
+                </div>
+                <div className="w-px h-8 bg-gradient-to-b from-transparent via-slate-200 to-transparent" />
+                <div className="text-center">
+                  <div className="text-lg font-bold gradient-text-static">100%</div>
+                  <div className="text-xs text-slate-500">Satisfaction</div>
+                </div>
+                <div className="w-px h-8 bg-gradient-to-b from-transparent via-slate-200 to-transparent" />
+                <div className="text-center">
+                  <div className="text-lg font-bold gradient-text-static">24h</div>
+                  <div className="text-xs text-slate-500">Response</div>
+                </div>
               </div>
-              <div className="w-px h-10 bg-gradient-to-b from-transparent via-slate-200 to-transparent hidden sm:block" />
-              <div className="text-center">
-                <div className="text-2xl font-bold gradient-text-static">100%</div>
-                <div className="text-sm text-slate-500">Satisfaction</div>
-              </div>
-              <div className="w-px h-10 bg-gradient-to-b from-transparent via-slate-200 to-transparent hidden sm:block" />
-              <div className="text-center">
-                <div className="text-2xl font-bold gradient-text-static">24h</div>
-                <div className="text-sm text-slate-500">Response</div>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Right: 3D Element / Graphics */}
+          <div className="relative hidden lg:flex items-center justify-center">
+            {/* Rotating Gradient Ring */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+              className="absolute w-[400px] h-[400px] xl:w-[480px] xl:h-[480px] rounded-full opacity-30"
+              style={{
+                background: 'conic-gradient(from 0deg, transparent, rgba(59, 130, 246, 0.4), transparent, rgba(139, 92, 246, 0.4), transparent, rgba(236, 72, 153, 0.4), transparent)',
+              }}
+            />
+
+            {/* Pulsing Center Glow */}
+            <div className="w-[280px] h-[280px] xl:w-[340px] xl:h-[340px] bg-gradient-to-r from-blue-500/15 via-violet-500/20 to-pink-500/15 rounded-full blur-2xl pulse-glow" />
+
+            {/* Floating Tech Pills - Around Graphics */}
+            {techPills.map((pill, index) => {
+              const positions = [
+                { top: '10%', left: '5%' },
+                { top: '5%', right: '10%' },
+                { bottom: '15%', left: '0%' },
+                { bottom: '5%', right: '5%' },
+              ];
+              const pos = positions[index];
+              return (
+                <motion.div
+                  key={pill.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.8 + pill.delay, duration: 0.5 }}
+                  className={`absolute tech-pill text-xs ${index % 2 === 0 ? 'float' : 'float-reverse'}`}
+                  style={{
+                    ...pos,
+                    animationDelay: `${index * 0.5}s`
+                  }}
+                >
+                  <pill.icon className="w-3 h-3 text-violet-500" />
+                  {pill.name}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
 

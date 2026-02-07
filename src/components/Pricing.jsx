@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Check, X, ArrowRight, Sparkles } from 'lucide-react';
 import { pricingPlans } from '../data/pricing';
 
@@ -9,25 +9,28 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="section-padding relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Subtle Background */}
+      <div className="absolute inset-0 bg-aurora-subtle" />
 
-      <div className="container-custom mx-auto relative" ref={ref}>
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <motion.span
+      <div className="container-custom relative" ref={ref}>
+        {/* Section Header - Compact */}
+        <div className="text-center mb-10">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block text-primary-400 font-semibold text-sm uppercase tracking-wider mb-4"
+            className="flex items-center justify-center gap-2 mb-3"
           >
-            Pricing Plans
-          </motion.span>
+            <Sparkles className="w-3.5 h-3.5 text-violet-500" />
+            <span className="text-xs font-medium text-violet-600 uppercase tracking-wider">
+              Pricing
+            </span>
+          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="section-title mb-6"
+            className="section-title mb-3"
           >
             Transparent <span className="gradient-text">Pricing</span>
           </motion.h2>
@@ -35,61 +38,62 @@ export default function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="section-subtitle mx-auto"
+            className="section-subtitle mx-auto text-sm"
           >
-            Choose a plan that fits your needs. All plans include our signature
-            quality and attention to detail.
+            Clear pricing, no surprises. Choose the plan that fits your growth stage.
           </motion.p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* Pricing Cards - SaaS Style */}
+        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              className={`relative glass-card p-8 flex flex-col ${plan.popular ? 'border-primary-500/50 shadow-glow' : ''
+              className={`relative bg-white rounded-2xl p-6 flex flex-col ${plan.popular
+                  ? 'ring-2 ring-violet-500 shadow-xl shadow-violet-500/10'
+                  : 'border border-slate-200 shadow-lg shadow-slate-200/50'
                 }`}
             >
               {/* Popular Badge */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-gradient-to-r from-primary-600 to-accent-600 text-white text-sm font-semibold shadow-lg">
-                    <Sparkles className="w-4 h-4" />
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-violet-500 to-pink-500 text-white text-[11px] font-semibold uppercase tracking-wide shadow-lg">
+                    <Sparkles className="w-3 h-3" />
                     Most Popular
                   </div>
                 </div>
               )}
 
               {/* Plan Header */}
-              <div className="text-center mb-8">
-                <h3 className="text-xl font-bold font-display mb-2">{plan.name}</h3>
-                <p className="text-obsidian-400 text-sm mb-4">{plan.description}</p>
-                <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-obsidian-400 text-lg">{plan.currency}</span>
-                  <span className="text-5xl font-bold gradient-text">{plan.price}</span>
+              <div className="text-center mb-5 pt-2">
+                <h3 className="text-base font-semibold text-slate-900 mb-1">{plan.name}</h3>
+                <p className="text-slate-500 text-xs mb-4">{plan.description}</p>
+                <div className="flex items-baseline justify-center gap-0.5">
+                  <span className="text-slate-400 text-sm">{plan.currency}</span>
+                  <span className="text-4xl font-bold text-slate-900">{plan.price}</span>
                 </div>
-                <p className="text-obsidian-500 text-sm mt-2">{plan.period}</p>
+                <p className="text-slate-400 text-xs mt-1.5">{plan.period}</p>
               </div>
 
-              {/* Delivery Time */}
-              <div className="flex items-center justify-center gap-2 py-3 mb-6 bg-obsidian-800/50 rounded-lg border border-obsidian-700">
-                <span className="text-obsidian-400 text-sm">Delivery:</span>
-                <span className="text-primary-400 font-semibold text-sm">{plan.deliveryTime}</span>
+              {/* Delivery Badge */}
+              <div className="flex items-center justify-center gap-2 py-2 mb-4 bg-slate-50 rounded-lg">
+                <span className="text-slate-500 text-xs">Delivery:</span>
+                <span className="text-violet-600 font-medium text-xs">{plan.deliveryTime}</span>
               </div>
 
               {/* Features */}
-              <ul className="space-y-3 mb-8 flex-grow">
+              <ul className="space-y-2.5 mb-6 flex-grow">
                 {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
+                  <li key={idx} className="flex items-start gap-2.5">
                     {feature.included ? (
-                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                     ) : (
-                      <X className="w-5 h-5 text-obsidian-600 flex-shrink-0 mt-0.5" />
+                      <X className="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />
                     )}
-                    <span className={feature.included ? 'text-obsidian-300' : 'text-obsidian-500'}>
+                    <span className={`text-xs leading-relaxed ${feature.included ? 'text-slate-700' : 'text-slate-400'}`}>
                       {feature.text}
                     </span>
                   </li>
@@ -103,27 +107,27 @@ export default function Pricing() {
                   e.preventDefault();
                   document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`w-full py-4 rounded-xl font-semibold text-center transition-all duration-300 flex items-center justify-center gap-2 ${plan.popular
-                    ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-500 hover:to-accent-500 shadow-lg shadow-primary-500/25'
-                    : 'bg-obsidian-800 border border-obsidian-600 text-white hover:border-primary-500/50'
+                className={`w-full py-2.5 rounded-lg font-medium text-sm text-center transition-all duration-300 flex items-center justify-center gap-2 ${plan.popular
+                    ? 'bg-gradient-to-r from-violet-500 to-pink-500 text-white hover:from-violet-600 hover:to-pink-600 shadow-lg shadow-violet-500/20'
+                    : 'bg-slate-900 text-white hover:bg-slate-800'
                   }`}
               >
                 {plan.cta}
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </motion.div>
           ))}
         </div>
 
-        {/* Custom Project Note */}
+        {/* Custom Quote */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center mt-12"
+          className="text-center mt-10"
         >
-          <p className="text-obsidian-400 mb-4">
-            Have a larger or more complex project in mind?
+          <p className="text-slate-500 text-sm mb-2">
+            Need something custom?
           </p>
           <a
             href="#contact"
@@ -131,10 +135,10 @@ export default function Pricing() {
               e.preventDefault();
               document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="text-primary-400 font-semibold hover:text-primary-300 transition-colors inline-flex items-center gap-2"
+            className="text-violet-600 font-medium text-sm hover:text-violet-700 transition-colors inline-flex items-center gap-1.5"
           >
             Get a Custom Quote
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </motion.div>
       </div>

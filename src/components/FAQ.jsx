@@ -1,21 +1,22 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronRight, Sparkles } from 'lucide-react';
 import { faqs } from '../data/faq';
 
 function FAQItem({ faq, isOpen, onToggle }) {
   return (
-    <div className="border-b border-obsidian-700/50 last:border-0">
+    <div className="border-b border-slate-100 last:border-0">
       <button
         onClick={onToggle}
-        className="w-full py-6 flex items-start justify-between gap-4 text-left group"
+        className="w-full py-4 flex items-center justify-between gap-4 text-left group"
         aria-expanded={isOpen}
       >
-        <span className={`font-semibold transition-colors ${isOpen ? 'text-primary-400' : 'text-white group-hover:text-primary-400'}`}>
+        <span className={`text-sm font-medium transition-colors ${isOpen ? 'text-violet-600' : 'text-slate-900 group-hover:text-violet-600'
+          }`}>
           {faq.question}
         </span>
-        <ChevronDown
-          className={`w-5 h-5 text-obsidian-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary-400' : ''
+        <ChevronRight
+          className={`w-4 h-4 flex-shrink-0 transition-all duration-300 ${isOpen ? 'rotate-90 text-violet-500' : 'text-slate-400 group-hover:text-violet-400'
             }`}
         />
       </button>
@@ -25,10 +26,10 @@ function FAQItem({ faq, isOpen, onToggle }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <p className="text-obsidian-400 pb-6 leading-relaxed">
+            <p className="text-slate-600 text-sm leading-relaxed pb-4 pr-8">
               {faq.answer}
             </p>
           </motion.div>
@@ -47,32 +48,30 @@ export default function FAQ() {
     setOpenId(openId === id ? null : id);
   };
 
-  // Split FAQs into two columns
-  const midpoint = Math.ceil(faqs.length / 2);
-  const leftFaqs = faqs.slice(0, midpoint);
-  const rightFaqs = faqs.slice(midpoint);
-
   return (
-    <section className="section-padding relative overflow-hidden bg-obsidian-900/30">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDYsIDE4MiwgMjEyLCAwLjA1KSIvPjwvZz48L3N2Zz4=')] opacity-60"></div>
+    <section className="section-padding relative overflow-hidden">
+      {/* Subtle Background */}
+      <div className="absolute inset-0 bg-aurora-subtle" />
 
-      <div className="container-custom mx-auto relative" ref={ref}>
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <motion.span
+      <div className="container-custom relative" ref={ref}>
+        {/* Section Header - Centered, Compact */}
+        <div className="text-center mb-10">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block text-primary-400 font-semibold text-sm uppercase tracking-wider mb-4"
+            className="flex items-center justify-center gap-2 mb-3"
           >
-            FAQ
-          </motion.span>
+            <Sparkles className="w-3.5 h-3.5 text-violet-500" />
+            <span className="text-xs font-medium text-violet-600 uppercase tracking-wider">
+              Trust Center
+            </span>
+          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="section-title mb-6"
+            className="section-title mb-3"
           >
             Frequently Asked <span className="gradient-text">Questions</span>
           </motion.h2>
@@ -80,35 +79,21 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="section-subtitle mx-auto"
+            className="section-subtitle mx-auto text-sm"
           >
-            Got questions? We've got answers. If you don't see your question here,
-            feel free to reach out.
+            Everything you need to know about working with us.
           </motion.p>
         </div>
 
-        {/* FAQ Grid */}
+        {/* FAQ Accordion - Narrow Container */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid lg:grid-cols-2 gap-x-12 gap-y-0"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="max-w-2xl mx-auto"
         >
-          {/* Left Column */}
-          <div className="glass-card p-6 lg:p-8">
-            {leftFaqs.map((faq) => (
-              <FAQItem
-                key={faq.id}
-                faq={faq}
-                isOpen={openId === faq.id}
-                onToggle={() => handleToggle(faq.id)}
-              />
-            ))}
-          </div>
-
-          {/* Right Column */}
-          <div className="glass-card p-6 lg:p-8 mt-6 lg:mt-0">
-            {rightFaqs.map((faq) => (
+          <div className="bg-white rounded-xl border border-slate-200 shadow-lg shadow-slate-200/50 px-6">
+            {faqs.map((faq) => (
               <FAQItem
                 key={faq.id}
                 faq={faq}
@@ -119,29 +104,26 @@ export default function FAQ() {
           </div>
         </motion.div>
 
-        {/* Still have questions */}
+        {/* Still Have Questions */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center mt-12"
+          className="text-center mt-8"
         >
-          <div className="inline-flex items-center gap-3 glass-card px-6 py-4">
-            <HelpCircle className="w-5 h-5 text-primary-400" />
-            <span className="text-obsidian-300">
-              Still have questions?{' '}
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="text-primary-400 font-semibold hover:text-primary-300 transition-colors"
-              >
-                Contact us
-              </a>
-            </span>
-          </div>
+          <p className="text-slate-500 text-sm">
+            Still have questions?{' '}
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="text-violet-600 font-medium hover:text-violet-700 transition-colors"
+            >
+              Contact us
+            </a>
+          </p>
         </motion.div>
       </div>
     </section>
