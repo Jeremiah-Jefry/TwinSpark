@@ -32,7 +32,7 @@ export default function Services() {
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="section-title mb-4"
           >
-            What we <span className="gradient-text">do best</span>
+            What we <span className="gradient-text">build</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -40,13 +40,12 @@ export default function Services() {
             transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="section-subtitle text-sm"
           >
-            From intelligent automation to high-converting websites—we build
-            digital solutions that drive measurable results.
+            Custom web apps, AI integrations, and modern UI — built with clean code and shipped fast.
           </motion.p>
         </div>
 
-        {/* Services Grid - Tighter gap, text-left cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Services Grid - 3 columns for 3 focused services */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -82,8 +81,8 @@ export default function Services() {
                 {service.description}
               </p>
 
-              {/* Features - Tighter */}
-              <ul className="space-y-1.5">
+              {/* Features */}
+              <ul className="space-y-1.5 mb-4">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-xs text-slate-500">
                     <span className="w-1 h-1 rounded-full bg-gradient-to-r from-violet-500 to-pink-500 mt-1.5 flex-shrink-0" />
@@ -91,6 +90,17 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
+
+              {/* Tech Stack */}
+              {service.tech && (
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                  {service.tech.map((tech, idx) => (
+                    <span key={idx} className="px-2 py-0.5 text-[10px] font-medium text-slate-500 bg-slate-50 rounded">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
@@ -100,7 +110,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-16 text-center"
+          className="mt-10 text-center"
         >
           <a
             href="#contact"

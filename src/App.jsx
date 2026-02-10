@@ -5,9 +5,7 @@ import {
   Hero,
   About,
   Services,
-  Projects,
   CaseStudies,
-  WhyUs,
   Testimonials,
   Pricing,
   FAQ,
@@ -20,10 +18,10 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
+    // Premium entrance animation - 1.8s sweet spot
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1800);
 
     return () => clearTimeout(timer);
   }, []);
@@ -53,20 +51,19 @@ function App() {
 
   return (
     <>
+      {/* Premium Loader with smooth exit */}
       <AnimatePresence mode="wait">
         {isLoading && <Loader key="loader" />}
       </AnimatePresence>
 
-      {/* Aurora background wrapper */}
-      <div className={`bg-aurora ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}>
+      {/* Main content fades in after loader */}
+      <div className={`bg-aurora transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Navbar />
         <main>
           <Hero />
           <About />
           <Services />
-          <Projects />
           <CaseStudies />
-          <WhyUs />
           <Testimonials />
           <Pricing />
           <FAQ />
