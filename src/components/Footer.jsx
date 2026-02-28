@@ -15,11 +15,11 @@ const footerLinks = {
   navigation: [
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
-    { name: 'Work', href: '#portfolio' },
-    { name: 'Pricing', href: '#pricing' },
+    { name: 'Projects', href: '#portfolio' },
+    { name: 'Why Us', href: '#why-us' },
+    { name: 'Contact', href: '#contact' },
   ],
   resources: [
-    { name: 'FAQ', href: '#faq' },
     { name: 'Contact', href: '#contact' },
   ],
   legal: [

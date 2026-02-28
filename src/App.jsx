@@ -2,13 +2,10 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import {
   Navbar,
-  Hero,
   About,
   Services,
-  CaseStudies,
-  Testimonials,
-  Pricing,
-  FAQ,
+  Projects,
+  WhyUs,
   Contact,
   Footer,
   Loader
@@ -60,13 +57,10 @@ function App() {
       <div className={`bg-aurora transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Navbar />
         <main>
-          <Hero />
           <About />
           <Services />
-          <CaseStudies />
-          <Testimonials />
-          <Pricing />
-          <FAQ />
+          <Projects />
+          <WhyUs />
           <Contact />
         </main>
         <Footer />
