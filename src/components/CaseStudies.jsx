@@ -8,7 +8,7 @@ export default function CaseStudies() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="section-padding relative overflow-hidden bg-obsidian-900/30">
+    <section className="section-padding relative overflow-hidden bg-canvas-subtle">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDYsIDE4MiwgMjEyLCAwLjA1KSIvPjwvZz48L3N2Zz4=')] opacity-60"></div>
 
@@ -19,7 +19,7 @@ export default function CaseStudies() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block text-primary-400 font-semibold text-sm uppercase tracking-wider mb-4"
+            className="inline-block text-violet-600 font-semibold text-sm uppercase tracking-wider mb-4"
           >
             Case Studies
           </motion.span>
@@ -53,7 +53,7 @@ export default function CaseStudies() {
             >
               <div className="grid lg:grid-cols-2">
                 {/* Left Side - Image/Visual */}
-                <div className="relative h-64 lg:h-auto min-h-[300px] bg-gradient-to-br from-primary-600 to-accent-600">
+                <div className="relative h-64 lg:h-auto min-h-[300px] bg-gradient-to-br from-violet-600 to-pink-600">
                   <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiLz48cGF0aCBkPSJNMjAgMjBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMikiLz48L2c+PC9zdmc+')] opacity-30"></div>
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
                     <span className="text-sm font-medium text-white/70 uppercase tracking-wider mb-2">
@@ -67,26 +67,26 @@ export default function CaseStudies() {
 
                 {/* Right Side - Content */}
                 <div className="p-8 lg:p-10">
-                  <h3 className="text-xl lg:text-2xl font-bold font-display mb-6">
+                  <h3 className="text-xl lg:text-2xl font-semibold text-slate-900 mb-6">
                     {study.title}
                   </h3>
 
                   {/* Problem */}
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-primary-400 uppercase tracking-wider mb-2">
+                    <h4 className="text-sm font-semibold text-violet-600 uppercase tracking-wider mb-2">
                       {study.problem.title}
                     </h4>
-                    <p className="text-obsidian-300 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {study.problem.description}
                     </p>
                   </div>
 
                   {/* Solution */}
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-accent-400 uppercase tracking-wider mb-2">
+                    <h4 className="text-sm font-semibold text-pink-600 uppercase tracking-wider mb-2">
                       {study.solution.title}
                     </h4>
-                    <p className="text-obsidian-300 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {study.solution.description}
                     </p>
                   </div>
@@ -94,11 +94,11 @@ export default function CaseStudies() {
                   {/* Results Stats */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                     {study.outcome.stats.map((stat, idx) => (
-                      <div key={idx} className="text-center p-3 bg-obsidian-800/50 rounded-lg">
+                      <div key={idx} className="text-center p-3 bg-slate-50 border border-slate-200 rounded-lg">
                         <div className="text-xl lg:text-2xl font-bold gradient-text">
                           {stat.value}
                         </div>
-                        <div className="text-xs text-obsidian-400 mt-1">
+                        <div className="text-xs text-slate-500 mt-1">
                           {stat.label}
                         </div>
                       </div>
@@ -106,12 +106,12 @@ export default function CaseStudies() {
                   </div>
 
                   {/* Testimonial Quote */}
-                  <div className="relative p-4 bg-obsidian-800/30 rounded-lg border border-obsidian-700/50">
-                    <Quote className="absolute top-4 left-4 w-6 h-6 text-primary-500/30" />
-                    <p className="text-obsidian-300 text-sm italic pl-8">
+                  <div className="relative p-4 bg-violet-50 rounded-lg border border-violet-200/60">
+                    <Quote className="absolute top-4 left-4 w-6 h-6 text-violet-500/30" />
+                    <p className="text-slate-600 text-sm italic pl-8">
                       "{study.testimonial.text}"
                     </p>
-                    <p className="text-primary-400 text-sm font-medium mt-2 pl-8">
+                    <p className="text-violet-600 text-sm font-medium mt-2 pl-8">
                       — {study.testimonial.author}, {study.testimonial.role}
                     </p>
                   </div>
@@ -121,7 +121,7 @@ export default function CaseStudies() {
                     {study.tech.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 text-xs bg-primary-500/10 border border-primary-500/20 rounded text-primary-400"
+                        className="px-2 py-1 text-xs bg-violet-50 border border-violet-200/60 rounded text-violet-600"
                       >
                         {tech}
                       </span>
@@ -140,7 +140,7 @@ export default function CaseStudies() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <p className="text-obsidian-400 mb-4">
+          <p className="text-slate-500 mb-4">
             Ready to be our next success story?
           </p>
           <a

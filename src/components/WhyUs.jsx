@@ -61,7 +61,7 @@ export default function WhyUs() {
   return (
     <section id="why-us" className="section-padding relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-500/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-violet-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="container-custom mx-auto relative" ref={ref}>
         {/* Section Header */}
@@ -70,7 +70,7 @@ export default function WhyUs() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block text-primary-400 font-semibold text-sm uppercase tracking-wider mb-4"
+            className="inline-block text-violet-600 font-semibold text-sm uppercase tracking-wider mb-4"
           >
             Why Twinspark
           </motion.span>
@@ -102,13 +102,13 @@ export default function WhyUs() {
               transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
               className="group glass-card-hover p-6 text-center"
             >
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 border border-primary-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:border-primary-500/40 transition-all duration-300">
-                <reason.icon className="w-6 h-6 text-primary-400" />
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/10 via-violet-500/10 to-pink-500/10 border border-violet-200/50 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:border-violet-400/50 transition-all duration-300">
+                <reason.icon className="w-6 h-6 text-violet-600" />
               </div>
-              <h3 className="text-lg font-bold font-display mb-2 group-hover:text-primary-400 transition-colors">
+              <h3 className="text-base font-semibold text-slate-900 mb-2 group-hover:text-violet-600 transition-colors">
                 {reason.title}
               </h3>
-              <p className="text-obsidian-400 text-sm">
+              <p className="text-slate-500 text-sm">
                 {reason.description}
               </p>
             </motion.div>
@@ -120,7 +120,7 @@ export default function WhyUs() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16 py-12 border-t border-b border-obsidian-800"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16 py-12 border-t border-b border-slate-200"
         >
           {[
             { value: '50+', label: 'Projects Delivered' },
@@ -132,7 +132,7 @@ export default function WhyUs() {
               <div className="text-3xl lg:text-4xl font-bold gradient-text mb-2">
                 {stat.value}
               </div>
-              <div className="text-obsidian-400 text-sm">
+              <div className="text-slate-500 text-sm">
                 {stat.label}
               </div>
             </div>

@@ -14,19 +14,19 @@ export default function Hero() {
   };
 
   const scrollToWork = () => {
-    document.querySelector('#case-studies')?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-aurora">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-aurora pt-14">
       {/* Animated Gradient Orbs */}
       <div className="gradient-orb gradient-orb-cyan w-[500px] h-[500px] -top-32 -left-32 float-slow" />
       <div className="gradient-orb gradient-orb-violet w-[400px] h-[400px] top-1/4 right-0 float" />
       <div className="gradient-orb gradient-orb-pink w-[300px] h-[300px] bottom-0 left-1/3 float-reverse" />
 
-      <div className="container-custom relative z-10 pt-14">
+      <div className="container-custom relative z-10">
         {/* Hybrid Layout: Left Text + Right Graphics */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[calc(100vh-120px)]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-16 lg:py-0">
           {/* Left: Text Content - LEFT ALIGNED */}
           <div className="text-left">
             {/* Badge */}

@@ -11,8 +11,8 @@ export default function Projects() {
   return (
     <section id="portfolio" className="section-padding relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-500/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-500/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-500/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="container-custom mx-auto relative" ref={ref}>
         {/* Section Header */}
@@ -21,7 +21,7 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block text-primary-400 font-semibold text-sm uppercase tracking-wider mb-4"
+            className="inline-block text-violet-600 font-semibold text-sm uppercase tracking-wider mb-4"
           >
             Our Portfolio
           </motion.span>
@@ -72,7 +72,7 @@ export default function Projects() {
                 <motion.div
                   initial={false}
                   animate={{ opacity: hoveredId === project.id ? 1 : 0 }}
-                  className="absolute inset-0 bg-obsidian-950/80 flex items-center justify-center gap-4"
+                  className="absolute inset-0 bg-slate-900/80 flex items-center justify-center gap-4"
                 >
                   <a
                     href={project.liveUrl}
@@ -92,7 +92,7 @@ export default function Projects() {
 
                 {/* Industry Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-obsidian-950/60 backdrop-blur-sm text-xs font-medium text-white border border-white/10">
+                  <span className="px-3 py-1 rounded-full bg-slate-900/60 backdrop-blur-sm text-xs font-medium text-white border border-white/10">
                     {project.industry}
                   </span>
                 </div>
@@ -100,10 +100,10 @@ export default function Projects() {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold font-display mb-2 group-hover:text-primary-400 transition-colors">
+                <h3 className="text-xl font-semibold text-slate-900 mb-2 group-hover:text-violet-600 transition-colors">
                   {project.name}
                 </h3>
-                <p className="text-obsidian-400 text-sm mb-4 line-clamp-2">
+                <p className="text-slate-500 text-sm mb-4 line-clamp-2">
                   {project.description}
                 </p>
 
@@ -112,7 +112,7 @@ export default function Projects() {
                   {project.features.map((feature, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-1 text-xs bg-obsidian-800 border border-obsidian-700 rounded-md text-obsidian-300"
+                      className="px-2 py-1 text-xs bg-slate-100 border border-slate-200 rounded-md text-slate-600"
                     >
                       {feature}
                     </span>
@@ -124,7 +124,7 @@ export default function Projects() {
                   {project.tech.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 text-xs bg-primary-500/10 border border-primary-500/20 rounded text-primary-400"
+                      className="px-2 py-0.5 text-xs bg-violet-50 border border-violet-200/60 rounded text-violet-600"
                     >
                       {tech}
                     </span>
@@ -132,7 +132,7 @@ export default function Projects() {
                 </div>
 
                 {/* Results */}
-                <p className="text-sm text-accent-400 font-medium">
+                <p className="text-sm text-violet-600 font-medium">
                   📈 {project.results}
                 </p>
               </div>
