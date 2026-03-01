@@ -149,7 +149,7 @@
   }
 
   html {
-    font-size: 15px;
+    font-size: 16px;
     scroll-behavior: smooth;
   }
 
@@ -249,7 +249,7 @@
   }
 
   .container-custom {
-    max-width: 72rem; /* Narrowed from 80rem for professional density */
+    max-width: 96rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.5rem;
@@ -258,8 +258,8 @@
 
   @media (min-width: 768px) {
     .container-custom {
-      padding-left: 3rem;
-      padding-right: 3rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
   }
 

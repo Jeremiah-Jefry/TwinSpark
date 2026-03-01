@@ -1,138 +1,115 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ExternalLink, FileText, ArrowRight } from 'lucide-react';
+import { ExternalLink, ArrowRight } from 'lucide-react';
 import { projects } from '../data/projects';
 
 export default function Projects() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
-    <section id="portfolio" className="section-padding relative overflow-hidden">
+    <section id="portfolio" className="py-12 md:py-16 relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-500/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="container-custom mx-auto relative" ref={ref}>
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="inline-block text-violet-600 font-semibold text-sm uppercase tracking-wider mb-4"
-          >
-            Our Portfolio
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="section-title mb-6"
-          >
-            Featured <span className="gradient-text">Projects</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="section-subtitle mx-auto"
-          >
-            Real results for real businesses. Each project is crafted with precision
-            to deliver measurable impact.
-          </motion.p>
-        </div>
+      <div className="container-custom relative" ref={ref}>
+        {/* Section Header — inline, compact */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-6"
+        >
+          <div>
+            <span className="inline-block text-emerald-600 font-semibold text-xs uppercase tracking-wider mb-1">
+              Our Portfolio
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
+              Featured <span className="gradient-text">Projects</span>
+            </h2>
+          </div>
+          <p className="text-slate-500 text-sm max-w-xs sm:text-right leading-snug">
+            Real results for real businesses —<br className="hidden sm:block" /> crafted with precision.
+          </p>
+        </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Compact bento grid — 3 cols × 2 rows, fits in one viewport */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+              transition={{ duration: 0.4, delay: 0.05 + index * 0.07 }}
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
-              className="group glass-card-hover overflow-hidden"
+              className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-emerald-200 transition-all duration-300"
             >
-              {/* Image Placeholder */}
-              <div className="relative h-56 overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-80`}></div>
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiLz48cGF0aCBkPSJNMjAgMjBtLTEgMGExIDEgMCAxIDAgMiAwYTEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMikiLz48L2c+PC9zdmc+')] opacity-50"></div>
-
-                {/* Project Name Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-3xl font-bold font-display text-white/90 text-center px-4">
+              {/* Gradient banner */}
+              <div className={`relative h-28 overflow-hidden bg-gradient-to-br ${project.color}`}>
+                {/* Dot texture */}
+                <div
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
+                    backgroundSize: '14px 14px',
+                  }}
+                />
+                {/* Name */}
+                <div className="absolute inset-0 flex items-center justify-center px-3">
+                  <span className="text-base font-bold text-white/95 text-center drop-shadow-sm leading-tight">
                     {project.name}
                   </span>
                 </div>
-
-                {/* Hover Overlay */}
-                <motion.div
-                  initial={false}
-                  animate={{ opacity: hoveredId === project.id ? 1 : 0 }}
-                  className="absolute inset-0 bg-slate-900/80 flex items-center justify-center gap-4"
-                >
-                  <a
-                    href={project.liveUrl}
-                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
-                    title="Live Demo"
-                  >
-                    <ExternalLink className="w-5 h-5 text-white" />
-                  </a>
-                  <a
-                    href={project.caseStudyUrl}
-                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
-                    title="Case Study"
-                  >
-                    <FileText className="w-5 h-5 text-white" />
-                  </a>
-                </motion.div>
-
-                {/* Industry Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-slate-900/60 backdrop-blur-sm text-xs font-medium text-white border border-white/10">
+                {/* Industry badge */}
+                <div className="absolute top-2 left-2">
+                  <span className="px-2 py-0.5 rounded-full bg-black/25 backdrop-blur-sm text-[10px] font-medium text-white/90">
                     {project.industry}
                   </span>
                 </div>
+                {/* Hover overlay */}
+                <motion.div
+                  initial={false}
+                  animate={{ opacity: hoveredId === project.id ? 1 : 0 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute inset-0 bg-slate-900/65 flex items-center justify-center"
+                >
+                  <a
+                    href={project.liveUrl}
+                    className="p-2.5 rounded-full bg-white/15 hover:bg-white/30 border border-white/25 transition-colors"
+                    title="View Project"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLink className="w-4 h-4 text-white" />
+                  </a>
+                </motion.div>
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-slate-900 mb-2 group-hover:text-violet-600 transition-colors">
+              {/* Card body */}
+              <div className="p-3">
+                <h3 className="text-sm font-semibold text-slate-900 mb-1.5 group-hover:text-emerald-600 transition-colors truncate">
                   {project.name}
                 </h3>
-                <p className="text-slate-500 text-sm mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-
-                {/* Features */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.features.map((feature, idx) => (
+                {/* Tech pills — max 3 shown */}
+                <div className="flex flex-wrap gap-1 mb-2">
+                  {project.tech.slice(0, 3).map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-1 text-xs bg-slate-100 border border-slate-200 rounded-md text-slate-600"
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.tech.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2 py-0.5 text-xs bg-violet-50 border border-violet-200/60 rounded text-violet-600"
+                      className="px-1.5 py-0.5 text-[10px] font-medium bg-slate-50 border border-slate-200 rounded text-slate-500"
                     >
                       {tech}
                     </span>
                   ))}
+                  {project.tech.length > 3 && (
+                    <span className="px-1 py-0.5 text-[10px] text-slate-400">
+                      +{project.tech.length - 3}
+                    </span>
+                  )}
                 </div>
-
-                {/* Results */}
-                <p className="text-sm text-violet-600 font-medium">
+                {/* Result highlight */}
+                <p className="text-[11px] text-emerald-600 font-medium leading-snug line-clamp-1">
                   📈 {project.results}
                 </p>
               </div>
@@ -142,10 +119,10 @@ export default function Projects() {
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.4, delay: 0.5 }}
+          className="text-center mt-6"
         >
           <a
             href="#contact"
